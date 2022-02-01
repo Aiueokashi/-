@@ -1,5 +1,7 @@
 const fs = require("fs");
 const fetch = require("./fetch");
+const cron = require("node-cron");
+const keep = require("./keep");
 
 var random = Math.floor(Math.random() * 10);
 temp = ['36.0', '36.1', '36.2', '36.3', '36.4', '36.5', '36.6', '36.7', '36.8', '36.9'];
@@ -16,10 +18,9 @@ async function post_form() {
     }
   )
     .then(() => console.log("posted"))
-    .catch((e) =>
-      console.log(e
-      )
-    );
+    .catch((e) =>console.log(e));
 }
 
-post_form();
+cron.schedule('* 6 * * *',() => {
+  post_form();
+})

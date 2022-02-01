@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "node-cron": "^3.0.0",
     "promise-polyfill": "^8.2.1",
     "xmlhttprequest": "^1.8.0"
   },
